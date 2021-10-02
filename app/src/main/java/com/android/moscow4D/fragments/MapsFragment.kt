@@ -1,12 +1,22 @@
 package com.android.moscow4D.fragments
 
+import android.Manifest
+import android.app.Activity
+import android.app.Dialog
+import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.android.moscow4D.MainActivity
 import com.android.moscow4D.R
+
+import com.google.android.gms.location.ActivityRecognition
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -14,8 +24,13 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlin.properties.Delegates
 
-class MapsFragment : Fragment() {
+
+class MapsFragment(_activity: Activity) : Fragment() {
+    private val activity: Activity = _activity
+
+    var locationPermission = false
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -27,9 +42,27 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+
         val sydney = LatLng(-34.0, 151.0)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        fetchLocation(googleMap)
+    }
+
+    private fun fetchLocation(googleMap: GoogleMap){
+        if (ActivityCompat.checkSelfPermission(
+                activity,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                activity,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 101)
+            return
+        }
+        googleMap.isMyLocationEnabled = true
     }
 
     override fun onCreateView(

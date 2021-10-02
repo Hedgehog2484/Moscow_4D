@@ -1,19 +1,34 @@
 package com.android.moscow4D
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.android.moscow4D.fragments.HomeFragment
 import com.android.moscow4D.fragments.MapsFragment
 import com.android.moscow4D.fragments.SettingsFragment
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.Task
+import com.google.android.libraries.places.api.Places
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-private val mapFragment = MapsFragment()
-private val homeFragment = HomeFragment()
-private val settingsFragment = SettingsFragment()
+class MainActivity: AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
+    private val mapsFragment = MapsFragment(this)
+    private val homeFragment = HomeFragment()
+    private val settingsFragment = SettingsFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,9 +36,9 @@ class MainActivity : AppCompatActivity() {
         setFragment(homeFragment)
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation)
-            .setOnItemSelectedListener{
-                when(it.itemId){
-                    R.id.ic_map -> setFragment(mapFragment)
+            .setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.ic_map -> setFragment(mapsFragment)
                     R.id.ic_home -> setFragment(homeFragment)
                     R.id.ic_settings -> setFragment(settingsFragment)
                 }
