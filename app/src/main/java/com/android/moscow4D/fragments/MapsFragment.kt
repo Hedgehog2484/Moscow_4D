@@ -30,8 +30,6 @@ import kotlin.properties.Delegates
 class MapsFragment(_activity: Activity) : Fragment() {
     private val activity: Activity = _activity
 
-    var locationPermission = false
-
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
