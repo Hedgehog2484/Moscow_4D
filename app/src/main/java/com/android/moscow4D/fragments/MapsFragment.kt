@@ -43,9 +43,12 @@ class MapsFragment(_activity: Activity) : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val moscow = LatLng(55.752004, 37.617734)
+        googleMap.addMarker(MarkerOptions().position(moscow).title("Marker in Moscow, kremlin"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(moscow))
+
+        googleMap.uiSettings.isZoomControlsEnabled = true
+        googleMap.uiSettings.isMapToolbarEnabled = false
 
         fetchLocation(googleMap)
     }
