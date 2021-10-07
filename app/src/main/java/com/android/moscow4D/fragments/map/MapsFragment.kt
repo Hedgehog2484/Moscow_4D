@@ -1,4 +1,4 @@
-package com.android.moscow4D.fragments
+package com.android.moscow4D.fragments.map
 
 import android.Manifest
 import android.app.Activity
@@ -24,13 +24,14 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 import kotlin.properties.Delegates
 
 
 class MapsFragment(_activity: Activity) : Fragment() {
-    private val activity: Activity = _activity
 
-    var locationPermission = false
+    private val mapController = MapController()
+    private val activity: Activity = _activity
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -43,9 +44,7 @@ class MapsFragment(_activity: Activity) : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mapController.onMapReady(googleMap)
 
         fetchLocation(googleMap)
     }
@@ -75,6 +74,7 @@ class MapsFragment(_activity: Activity) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
