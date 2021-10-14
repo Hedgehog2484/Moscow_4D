@@ -1,8 +1,7 @@
-package com.android.moscow4D.fragments
+package com.android.moscow4D.fragments.map
 
 import android.Manifest
 import android.app.Activity
-import android.app.Dialog
 import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
@@ -10,13 +9,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import com.android.moscow4D.MainActivity
 import com.android.moscow4D.R
-
-import com.google.android.gms.location.ActivityRecognition
-import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -24,7 +18,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlin.properties.Delegates
 
 
 class MapsFragment(_activity: Activity) : Fragment() {
