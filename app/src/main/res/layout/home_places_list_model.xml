@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     app:cardBackgroundColor="@color/quantum_googblue800"
-    app:cardCornerRadius="15dp" >
+    app:cardCornerRadius="15dp">
 
 
     <!-- The Layout that include place image and place name -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
         android:orientation="horizontal">
 
 
@@ -35,8 +38,6 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            android:layout_toEndOf="@+id/place_image"
 
             android:padding="10dp"
 
