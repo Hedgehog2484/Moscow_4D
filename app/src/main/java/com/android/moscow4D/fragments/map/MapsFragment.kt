@@ -29,7 +29,6 @@ import kotlin.properties.Delegates
 
 
 class MapsFragment(_activity: Activity) : Fragment() {
-
     private val mapController = MapController()
     private val activity: Activity = _activity
 
@@ -74,6 +73,7 @@ class MapsFragment(_activity: Activity) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
