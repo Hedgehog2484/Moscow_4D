@@ -2,6 +2,7 @@ package com.android.moscow4D.fragments.map
 
 import android.Manifest
 import android.app.Activity
+import android.app.Dialog
 import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
@@ -9,8 +10,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.android.moscow4D.MainActivity
 import com.android.moscow4D.R
+
+import com.google.android.gms.location.ActivityRecognition
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,9 +24,12 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
+import kotlin.properties.Delegates
 
 
 class MapsFragment(_activity: Activity) : Fragment() {
+    private val mapController = MapController()
     private val activity: Activity = _activity
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -34,12 +43,7 @@ class MapsFragment(_activity: Activity) : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        val moscow = LatLng(55.752004, 37.617734)
-        googleMap.addMarker(MarkerOptions().position(moscow).title("Marker in Moscow, kremlin"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(moscow))
-
-        googleMap.uiSettings.isZoomControlsEnabled = true
-        googleMap.uiSettings.isMapToolbarEnabled = false
+        mapController.onMapReady(googleMap)
 
         fetchLocation(googleMap)
     }
@@ -69,6 +73,8 @@ class MapsFragment(_activity: Activity) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }

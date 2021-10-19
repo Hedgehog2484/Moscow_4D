@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.android.moscow4D.R
 
-
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 // private const val ARG_PARAM1 = "param1"
 // private const val ARG_PARAM2 = "param2"
@@ -18,7 +17,7 @@ import com.android.moscow4D.R
  * create an instance of this fragment.
  */
 class SettingsFragment : Fragment() {
-
+  
     // private var param1: String? = null
     // private var param2: String? = null
 
@@ -37,7 +36,7 @@ class SettingsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false)
     }
-
+    
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
