@@ -1,14 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.settings.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Settings fragment" />
+        android:layout_height="match_parent">
 
+        <!-- Settings page text title -->
+        <TextView
+            android:id="@+id/settings_page_title"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+
+            android:text="Настройки" />
+
+        <!-- Language settings title -->
+        <TextView
+            android:id="@+id/settings_title_language"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup_language"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:text="Язык" />
+
+        <!-- Language settings -->
+        <RadioGroup
+            android:id="@+id/radioGroup_language"
+
+            android:layout_width="170dp"
+            android:layout_height="96dp"
+
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="65dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_page_title">
+
+            <!-- Russian language button -->
+            <RadioButton
+                android:id="@+id/language_btn_rus"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:checked="true"
+                android:text="Русский" />
+
+            <!-- English language button -->
+            <RadioButton
+                android:id="@+id/language_btn_eng"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="English" />
+
+        </RadioGroup>
+
+
+        <!-- Sound settings title -->
+        <TextView
+            android:id="@+id/settings_title_voice"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup_voice"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:text="Голос" />
+
+        <!-- Voice speaker settings -->
+        <RadioGroup
+            android:id="@+id/radioGroup_voice"
+
+            android:layout_width="170dp"
+            android:layout_height="96dp"
+
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="256dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_page_title" >
+
+            <!-- Male voice button -->
+            <RadioButton
+                android:id="@+id/voice_btn_male"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Мужской" />
+
+            <!-- Female voice button -->
+            <RadioButton
+                android:id="@+id/voice_btn_female"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Женский" />
+
+        </RadioGroup>
+
+        <!-- Colour theme settings title -->
+        <TextView
+            android:id="@+id/settings_title_colour"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            app:layout_constraintBottom_toTopOf="@id/radioGroup_colour"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:text="Цветовая схема" />
+
+        <!-- Interface color settings -->
+        <RadioGroup
+            android:id="@+id/radioGroup_colour"
+
+            android:layout_width="170dp"
+            android:layout_height="96dp"
+
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="447dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_page_title" >
+
+            <!-- Lite theme button -->
+            <RadioButton
+                android:id="@+id/theme_button_lite"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Светлая" />
+
+
+            <!-- Dark theme button -->
+            <RadioButton
+                android:id="@+id/theme_button_dark"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Тёмная" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
