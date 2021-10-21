@@ -1,17 +1,20 @@
 package com.android.moscow4D
 
+import android.app.ProgressDialog.show
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.android.moscow4D.fragments.home.HomeFragment
 import com.android.moscow4D.fragments.map.MapController
 import com.android.moscow4D.fragments.map.MapsFragment
+import com.android.moscow4D.fragments.map.subUI.BottomSheetFragment
 import com.android.moscow4D.fragments.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity: AppCompatActivity() {
-    private val mapsFragment = MapsFragment(this)
+    private val mapsFragment = MapsFragment(this, supportFragmentManager)
     private val homeFragment = HomeFragment()
     private val settingsFragment = SettingsFragment()
 
@@ -30,6 +33,7 @@ class MainActivity: AppCompatActivity() {
                 }
                 true
             }
+
     }
 
     private fun setFragment(fragment: Fragment){

@@ -16,7 +16,7 @@ import android.view.ViewGroup
 
 import android.view.LayoutInflater
 import android.view.View
-import com.android.moscow4D.PlacePageActivity
+import com.android.moscow4D.fragments.home.PlacePageActivity
 
 import com.android.moscow4D.CacheEngine
 
