@@ -2,7 +2,6 @@ package com.android.moscow4D.fragments.map
 
 import android.Manifest
 import android.app.Activity
-import android.app.Dialog
 import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
@@ -10,27 +9,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.Button
 import androidx.core.app.ActivityCompat
-import com.android.moscow4D.MainActivity
+import androidx.fragment.app.FragmentManager
 import com.android.moscow4D.R
+import com.android.moscow4D.fragments.map.subUI.BottomSheetFragment
 
-import com.google.android.gms.location.ActivityRecognition
-import com.google.android.gms.location.LocationServices
-
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PolylineOptions
-import kotlin.properties.Delegates
+import com.google.android.gms.maps.model.MapStyleOptions
 
 
-class MapsFragment(_activity: Activity) : Fragment() {
-    private val mapController = MapController()
+class MapsFragment(_activity: Activity, val _fragmentManager: FragmentManager) : Fragment() {
+    private var mapController: MapController? = null
     private val activity: Activity = _activity
+
+    private val bottomSheetFragment = BottomSheetFragment()
+
+    private var btn0: Button? = null
+
+    private val frManager = _fragmentManager
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -43,9 +42,39 @@ class MapsFragment(_activity: Activity) : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        mapController.onMapReady(googleMap)
+        mapController = MapController(_fragmentManager, _activity.applicationContext)
+
+        mapController!!.onMapReady(googleMap)
 
         fetchLocation(googleMap)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_maps, container, false)
+
+        //btn0 = view.findViewById<Button>(R.id.btn0)
+
+        //btn0!!.setOnClickListener {
+        //    bottomSheetFragment.show(frManager, "Bottom sheet dialog!")
+        //}
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        mapFragment?.getMapAsync(callback)
     }
 
     private fun fetchLocation(googleMap: GoogleMap){
@@ -61,21 +90,5 @@ class MapsFragment(_activity: Activity) : Fragment() {
             return
         }
         googleMap.isMyLocationEnabled = true
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
     }
 }

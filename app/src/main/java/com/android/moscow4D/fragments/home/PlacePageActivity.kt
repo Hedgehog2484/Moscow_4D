@@ -1,9 +1,11 @@
-package com.android.moscow4D
+package com.android.moscow4D.fragments.home
 
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.android.moscow4D.CacheEngine
+import com.android.moscow4D.R
 
 
 class PlacePageActivity: AppCompatActivity() {
