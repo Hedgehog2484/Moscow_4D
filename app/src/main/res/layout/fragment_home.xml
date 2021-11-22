@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.home.HomeFragment" >
+    tools:context=".fragments.home.HomeFragment"
+    android:orientation="vertical">
 
+    <!-- Text input field settings -->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Place name"
+        android:iconifiedByDefault="false"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/searchview_backgound"
+        android:queryBackground="@android:color/transparent"
+        />
 
     <!-- The fragment that will draw the listview -->
     <fragment
@@ -14,42 +28,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
-
-    <!-- Text input field settings -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout"
-
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-
-        app:boxStrokeColor="#000000"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white" >
-
-        <!-- Set help text and cursor in input field -->
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="Search place"
-
-            android:textCursorDrawable="@drawable/text_cursor_conf" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <!-- "Find" button settings -->
-    <ImageButton
-        android:id="@+id/button_find"
-        android:layout_width="67dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="135dp"
-        android:src="@drawable/magnifier_search_zoom_icon" />
-
-</FrameLayout>
+</LinearLayout>
