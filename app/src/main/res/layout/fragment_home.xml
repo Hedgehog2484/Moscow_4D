@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.home.HomeFragment"
+    tools:showIn=".fragments.home.HomeFragment"
     android:orientation="vertical">
 
     <!-- Text input field settings -->
@@ -21,14 +22,60 @@
         android:queryBackground="@android:color/transparent"
         />
 
+    <Button
+        android:id="@+id/btnAdd"
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD RECORD" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="All the inserted records."
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <!-- The fragment that will draw the listview -->
     <fragment
         android:id="@+id/home_fragment"
         android:name="com.android.moscow4D.fragments.home.PlacesListFragment"
-
+        android:drawSelectorOnTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:drawSelectorOnTop="true"
+        android:id="@+id/rvItemsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvNoRecordsAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No records available!!!"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
 </LinearLayout>
