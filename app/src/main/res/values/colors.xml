@@ -7,5 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#122078</color>
+
+    <!-- Custom design colors -->
+    <color name="blue">#033f6b</color>
+    <color name="blue2">#245a7a</color>
+    <color name="blue3">#2a56ad</color>
+    <color name="box_stroke">#25567b</color>
+
 </resources>
