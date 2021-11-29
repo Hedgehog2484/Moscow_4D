@@ -7,7 +7,7 @@ class CacheEngine {
         var data = arrayListOf<Map<String, String?>>(
             mapOf(
                 "Place" to "Название",
-                "Image" to R.drawable.image_id.toString(),
+                "Image" to R.drawable. ic_map.toString(),
                 "Description" to "Тут должно быть описание"
             )
         )

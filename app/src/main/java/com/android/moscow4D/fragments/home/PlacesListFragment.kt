@@ -16,6 +16,7 @@ import android.view.ViewGroup
 
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import com.android.moscow4D.fragments.home.PlacePageActivity
 
 import com.android.moscow4D.CacheEngine
@@ -41,7 +42,7 @@ class PlacesListFragment : ListFragment() {
         val from = arrayOf("Place", "Image")
 
         // IDs of views.
-        val to = intArrayOf(R.id.place_name, R.id.place_image)
+        val to = intArrayOf(R.id.tvName, R.id.place_image)
 
         // Adapter.
         adapter = SimpleAdapter(requireActivity(), CacheEngine.data, R.layout.home_places_list_model, from, to)
@@ -56,6 +57,7 @@ class PlacesListFragment : ListFragment() {
          * Renders listView and shows it in the fragment.
          */
         super.onStart()
+        listView.isDrawSelectorOnTop = true;
         listView.divider = null  // Turn off background between list items.
         listView.dividerHeight = 50  // Set distance between list items.
 
@@ -70,6 +72,6 @@ class PlacesListFragment : ListFragment() {
                 context?.startActivity(intent)  // Starting new activity with info about place.
 
                 // Toast.makeText(requireActivity(), data[pos]["Place"], Toast.LENGTH_SHORT).show()  // Show ListView.
-            }
+            };
     }
 }

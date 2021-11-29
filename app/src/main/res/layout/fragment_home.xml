@@ -1,55 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.home.HomeFragment" >
+    tools:context=".fragments.home.HomeFragment"
+    tools:showIn=".fragments.home.HomeFragment"
+    android:orientation="vertical">
 
+    <!-- Text input field settings -->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Place name"
+        android:iconifiedByDefault="false"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/searchview_backgound"
+        android:queryBackground="@android:color/transparent"
+        />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD RECORD" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="All the inserted records."
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <!-- The fragment that will draw the listview -->
     <fragment
         android:id="@+id/home_fragment"
         android:name="com.android.moscow4D.fragments.home.PlacesListFragment"
-
+        android:drawSelectorOnTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:drawSelectorOnTop="true"
+        android:id="@+id/rvItemsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:visibility="gone" />
 
-    <!-- Text input field settings -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout"
+    <TextView
+        android:id="@+id/tvNoRecordsAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No records available!!!"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-
-        app:boxStrokeColor="#000000"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white" >
-
-        <!-- Set help text and cursor in input field -->
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="Search place"
-
-            android:textCursorDrawable="@drawable/text_cursor_conf" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <!-- "Find" button settings -->
-    <ImageButton
-        android:id="@+id/button_find"
-        android:layout_width="67dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="135dp"
-        android:src="@drawable/magnifier_search_zoom_icon" />
-
-</FrameLayout>
+</LinearLayout>
