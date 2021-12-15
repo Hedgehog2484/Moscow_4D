@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:paddingBottom="56dp"
+    tools:context=".fragments.home.AddFragment"
+    tools:showIn=".fragments.home.AddFragment">
+
+    <EditText
+        android:id="@+id/addPlaceId_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="ID"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <EditText
+        android:id="@+id/addPlaceType_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Тип места"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceId_et"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <EditText
+        android:id="@+id/addPlaceName_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Наазвание"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceType_et"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <EditText
+        android:id="@+id/addPlaceDesc_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Описание"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceName_et"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <EditText
+        android:id="@+id/addPlaceThumbnails_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Не влияет"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceDesc_et"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <EditText
+        android:id="@+id/addPlaceImage_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Не влияет"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceThumbnails_et"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <EditText
+        android:id="@+id/addPlaceSounds_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Не влияет"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceImage_et"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <Button
+        android:id="@+id/add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Add"
+        app:layout_constraintTop_toBottomOf="@+id/addPlaceSounds_et"
+        tools:layout_editor_absoluteX="24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

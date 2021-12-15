@@ -1,44 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/llMain"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/roundcorner_background"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/place_image"
-
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="6dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="21dp">
 
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
 
-        android:contentDescription="description"
-        android:src="@drawable/ic_home" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        tools:text="PlaceName" />
+            <ImageView
+                android:id="@+id/place_image"
 
-    <ImageView
-        android:id="@+id/ivLead"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:contentDescription="image"
-        android:layout_marginRight="10dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="centerInside"
-        android:background="@drawable/roundcorner_background"
-        android:src="@drawable/ic_route" />
-</LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+
+                android:contentDescription="description"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:text="PlaceName" />
+
+            <ImageView
+                android:id="@+id/ivLead"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/roundcorner_background"
+                android:contentDescription="image"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_route" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

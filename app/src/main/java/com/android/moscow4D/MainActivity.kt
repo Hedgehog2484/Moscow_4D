@@ -1,26 +1,35 @@
 package com.android.moscow4D
 
-import android.app.ProgressDialog.show
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
+import com.android.moscow4D.fragments.home.AddFragment
 import com.android.moscow4D.fragments.home.HomeFragment
-import com.android.moscow4D.fragments.map.MapController
 import com.android.moscow4D.fragments.map.MapsFragment
-import com.android.moscow4D.fragments.map.subUI.BottomSheetFragment
 import com.android.moscow4D.fragments.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.android.moscow4D.databinding.ActivityMainBinding
 
 
 class MainActivity: AppCompatActivity() {
     private val mapsFragment = MapsFragment(this, supportFragmentManager)
-    private val homeFragment = HomeFragment()
+    private val homeFragment = HomeFragment(this)
     private val settingsFragment = SettingsFragment()
+
+    private lateinit var binding: ActivityMainBinding
+
+    private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(R.layout.activity_main)
+
 
         setFragment(homeFragment)
 
@@ -36,9 +45,9 @@ class MainActivity: AppCompatActivity() {
 
     }
 
-    private fun setFragment(fragment: Fragment){
+     fun setFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
-        transaction.commit()
+        transaction.addToBackStack("tag").commit()
     }
 }

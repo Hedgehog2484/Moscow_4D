@@ -60,18 +60,5 @@ class PlacesListFragment : ListFragment() {
         listView.isDrawSelectorOnTop = true;
         listView.divider = null  // Turn off background between list items.
         listView.dividerHeight = 50  // Set distance between list items.
-
-        listView.onItemClickListener =
-            OnItemClickListener { av, v, pos, id ->
-                val place_name = CacheEngine.data[pos]["Place"]  // Get place name.
-
-                val intent = Intent(context, PlacePageActivity::class.java).apply{
-                    putExtra("position", pos)  // Passing place position in list to the place info activity.
-                 }
-
-                context?.startActivity(intent)  // Starting new activity with info about place.
-
-                // Toast.makeText(requireActivity(), data[pos]["Place"], Toast.LENGTH_SHORT).show()  // Show ListView.
-            };
     }
 }

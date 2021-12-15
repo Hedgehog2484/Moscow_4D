@@ -4,29 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingBottom="56dp"
     tools:context=".fragments.home.HomeFragment"
-    tools:showIn=".fragments.home.HomeFragment"
-    android:orientation="vertical">
+    tools:showIn=".fragments.home.HomeFragment">
 
-    <!-- Text input field settings -->
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="Your username."
+        android:textColor="@color/blue"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Place name"
-        android:iconifiedByDefault="false"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/searchview_backgound"
+        android:iconifiedByDefault="false"
         android:queryBackground="@android:color/transparent"
-        />
+        android:queryHint="Place name" />
 
     <Button
         android:id="@+id/btnAdd"
-        android:background="@color/blue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/blue"
         android:text="ADD RECORD" />
 
 
@@ -49,33 +61,13 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- The fragment that will draw the listview -->
-    <fragment
-        android:id="@+id/home_fragment"
-        android:name="com.android.moscow4D.fragments.home.PlacesListFragment"
-        android:drawSelectorOnTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:drawSelectorOnTop="true"
         android:id="@+id/rvItemsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
-        tools:visibility="gone" />
+        android:drawSelectorOnTop="true"
+        android:visibility="visible"></androidx.recyclerview.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/tvNoRecordsAvailable"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="No records available!!!"
-        android:textSize="18sp"
-        android:textColor="@color/blue"
-        android:visibility="gone"
-        tools:visibility="visible" />
+    <!-- The fragment that will draw the listview -->
 
 </LinearLayout>
