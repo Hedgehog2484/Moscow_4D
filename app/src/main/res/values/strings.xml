@@ -2,26 +2,15 @@
     <string name="app_name">Moscow4D</string>
 
     <!-- Home page strings -->
-    <string name="home_default_username_rus">Ваше имя</string>
-    <string name="home_default_username_eng">Your name</string>
-
-    <string name="home_searchview_query_hint_rus">Название места</string>
-    <string name="home_searchview_query_hint_eng">Place name</string>
+    <string name="home_default_username">Ваше имя</string>
+    <string name="home_searchview_query_hint">Название места</string>
 
     <!-- Settings page strings -->
-    <string name="settings_page_title_lang_rus">Настройки</string>
-    <string name="settings_page_title_lang_eng">Settings</string>
-
-    <string name="settings_category_lang_rus">Язык</string>
-    <string name="settings_category_lang_eng">Language</string>
-
-    <string name="settings_category_speaker_rus">Пол диктора</string>
-    <string name="settings_category_speaker_eng">Speaker</string>
-
-    <string name="settings_category_color_scheme_rus">Цветовая схема</string>
-    <string name="settings_category_color_scheme_eng">Color scheme</string>
+    <string name="settings_page_title_lang">Настройки</string>
+    <string name="settings_category_lang">Язык</string>
+    <string name="settings_category_speaker">Пол диктора</string>
+    <string name="settings_category_color_scheme">Цветовая схема</string>
 
     <!-- Place info page strings -->
-    <string name="place_get_direction_btn_text_rus">Проложить маршрут</string>
-    <string name="place_get_direction_btn_text_eng">Get direction</string>
+    <string name="place_get_direction_btn_text">Проложить маршрут</string>
 </resources>
