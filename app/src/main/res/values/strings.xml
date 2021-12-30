@@ -10,17 +10,19 @@
     <string name="settings_username_title">Имя пользователя</string>
     <string name="settings_username_default_value">Не установлено</string>
 
-    <string name="settings_category_lang">Язык</string>
     <string name="settings_langs_title">Язык интерфейса</string>
-    <string name="settings_language_default_value">Русский</string>
+    <string name="settings_language_value_rus" translatable="false">Русский</string>
+    <string name="settings_language_value_eng" translatable="false">English</string>
 
-    <string name="settings_category_speaker">Диктор</string>
+    <string name="settings_category_sound">Звук</string>
     <string name="settings_speaker_title">Голос диктора</string>
-    <string name="settings_speaker_voice_default_value">Мужской</string>
+    <string name="settings_speaker_voice_value_male">Мужской</string>
+    <string name="settings_speaker_voice_value_female">Женский</string>
 
     <string name="settings_category_interface">Интерфейс</string>
     <string name="settings_interface_title">Цветовая схема</string>
-    <string name="settings_color_cheme_default_value">Темная тема</string>
+    <string name="settings_color_theme_value_light">Светлая тема</string>
+    <string name="settings_color_theme_value_dark">Темная тема</string>
 
     <!-- Place info page strings -->
     <string name="place_get_direction_btn_text">Проложить маршрут</string>

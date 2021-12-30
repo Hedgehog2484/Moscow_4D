@@ -1,46 +1,46 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="Пользователь">
-
+    <PreferenceCategory app:title="@string/settings_category_username">
+        <!-- Username settings -->
         <EditTextPreference
             app:key="username"
-            app:title="Имя пользователя"
+            app:title="@string/settings_username_title"
+            app:defaultValue="@string/settings_username_default_value"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Язык">
 
+    <PreferenceCategory app:title="@string/settings_category_sound">
+        <!-- Sound settings -->
         <ListPreference
-            app:defaultValue="1"
-            app:entries="@array/language_entries"
-            app:entryValues="@array/language_values"
-            app:key="language"
-            app:title="Язык интерфейса"
-            app:useSimpleSummaryProvider="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="Звук">
-
-        <ListPreference
-            app:defaultValue="1"
+            app:defaultValue="male"
             app:entries="@array/voice_entries"
             app:entryValues="@array/voice_values"
             app:key="voice"
-            app:title="Голос диктора"
+            app:title="@string/settings_speaker_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Тема">
+    <PreferenceCategory app:title="@string/settings_category_interface">
+        <!-- Color theme -->
         <ListPreference
-            app:defaultValue="1"
+            app:defaultValue="light"
             app:entries="@array/color_mode_entries"
             app:entryValues="@array/color_mode_values"
             app:key="color_theme"
-            app:title="Выбор темы"
+            app:title="@string/settings_interface_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <!-- Language -->
+        <ListPreference
+            app:defaultValue="lang_rus"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:key="language"
+            app:title="@string/settings_langs_title"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
