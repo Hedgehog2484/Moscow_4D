@@ -3,6 +3,7 @@ import androidx.lifecycle.*
 import com.android.moscow4D.database.PlaceEntity
 import com.android.moscow4D.database.PlaceRepository
 import com.android.moscow4D.database.PlaceRoomDatabase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -14,6 +15,7 @@ class PlaceViewModel(application: Application) : AndroidViewModel(application) {
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
     val allPlaces: LiveData<List<PlaceEntity>>
+    var allPlacesList: ArrayList<PlaceEntity> = arrayListOf()
     val repository: PlaceRepository
 
     init {
@@ -26,16 +28,17 @@ class PlaceViewModel(application: Application) : AndroidViewModel(application) {
      * Launching a new coroutine to insert the data in a non-blocking way
      */
     fun insert(place: PlaceEntity) = viewModelScope.launch {
+        allPlacesList.add(place)
         repository.insert(place)
     }
-}/*
-class PlaceViewModelFactory(private val repository: PlaceRepository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(PlaceViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return PlaceViewModel(repository) as T
+
+    fun get(position: Int): PlaceEntity {
+        return allPlacesList[position]
+    }
+
+    fun initList() {
+        viewModelScope.launch(Dispatchers.IO) {
+            allPlacesList = repository.getAllPlacesAsync()
         }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-*/

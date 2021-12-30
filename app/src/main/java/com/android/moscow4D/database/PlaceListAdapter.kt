@@ -11,11 +11,29 @@ import com.android.moscow4D.R
 import java.util.Collections.emptyList
 import com.android.moscow4D.database.PlaceEntity
 
-class PlaceListAdapter: RecyclerView.Adapter<PlaceListAdapter.MyViewHolder>() {
+class PlaceListAdapter(
+    private val allPlaces: List<PlaceEntity>,
+    private val onClickListener: OnItemClickListener): RecyclerView.Adapter<PlaceListAdapter.MyViewHolder>() {
 
     private var placeList = emptyList<PlaceEntity>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
+    inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView),
+    View.OnClickListener{
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+            val position:Int = adapterPosition
+
+            if (position != RecyclerView.NO_POSITION)
+            onClickListener.onItemClick(position)
+        }
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.home_places_list_model, parent, false))
@@ -27,11 +45,17 @@ class PlaceListAdapter: RecyclerView.Adapter<PlaceListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = placeList[position]
+
         holder.itemView.findViewById<TextView>(R.id.tvName).text = currentItem.place_name
+        holder.itemView.findViewById<TextView>(R.id.tvDesc).text = currentItem.place_description
+
+        /*holder.itemView.setOnClickListener { place ->
+            onClickListener.invoke(place, currentItem)
+        }*/
     }
 
-    fun setData(place: List<PlaceEntity>){
-        this.placeList = place
+    fun setData(places: List<PlaceEntity>){
+        this.placeList = places
         notifyDataSetChanged()
     }
 }

@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.android.moscow4D.R
 import com.android.moscow4D.database.PlaceEntity
 import kotlinx.coroutines.InternalCoroutinesApi

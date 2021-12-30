@@ -11,6 +11,12 @@ interface PlaceListDao {
     @Query("SELECT * FROM ${PlaceEntity.TABLE_NAME}")
     fun getAllPlaces(): List<PlaceEntity>
 
+    @Query("SELECT * FROM ${PlaceEntity.TABLE_NAME}")
+    suspend fun getAllPlacesAsync(): List<PlaceEntity>
+
+    @Query("SELECT * FROM ${PlaceEntity.TABLE_NAME}")
+    fun getAllPlacesLive(): LiveData<List<PlaceEntity>>
+
     @Query("SELECT * FROM ${PlaceEntity.TABLE_NAME} ORDER BY placeName ASC")
     fun getAlphabetizedWords(): LiveData<List<PlaceEntity>>
 
