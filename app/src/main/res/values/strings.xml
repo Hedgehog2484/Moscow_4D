@@ -6,10 +6,21 @@
     <string name="home_searchview_query_hint">Название места</string>
 
     <!-- Settings page strings -->
-    <string name="settings_page_title_lang">Настройки</string>
+    <string name="settings_category_username">Пользователь</string>
+    <string name="settings_username_title">Имя пользователя</string>
+    <string name="settings_username_default_value">Не установлено</string>
+
     <string name="settings_category_lang">Язык</string>
-    <string name="settings_category_speaker">Пол диктора</string>
-    <string name="settings_category_color_scheme">Цветовая схема</string>
+    <string name="settings_langs_title">Язык интерфейса</string>
+    <string name="settings_language_default_value">Русский</string>
+
+    <string name="settings_category_speaker">Диктор</string>
+    <string name="settings_speaker_title">Голос диктора</string>
+    <string name="settings_speaker_voice_default_value">Мужской</string>
+
+    <string name="settings_category_interface">Интерфейс</string>
+    <string name="settings_interface_title">Цветовая схема</string>
+    <string name="settings_color_cheme_default_value">Темная тема</string>
 
     <!-- Place info page strings -->
     <string name="place_get_direction_btn_text">Проложить маршрут</string>
