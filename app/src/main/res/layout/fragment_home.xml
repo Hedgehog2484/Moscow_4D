@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="100dp"
-        android:text="Your username."
+        android:text="@string/home_default_username"
         android:textColor="@color/blue"
         android:textSize="36sp"
         android:textStyle="bold" />
@@ -29,37 +29,11 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="16dp"
+
         android:background="@drawable/searchview_backgound"
         android:iconifiedByDefault="false"
         android:queryBackground="@android:color/transparent"
-        android:queryHint="Place name" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
-        android:text="ADD RECORD" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="All the inserted records."
-            android:textColor="@color/blue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:queryHint="@string/home_searchview_query_hint" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvItemsList"
