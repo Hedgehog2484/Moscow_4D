@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Moscow4D</string>
+
+    <!-- Home page strings -->
+    <string name="home_default_username">Ваше имя</string>
+    <string name="home_searchview_query_hint">Название места</string>
+
+    <!-- Settings page strings -->
+    <string name="settings_page_title_lang">Настройки</string>
+    <string name="settings_category_lang">Язык</string>
+    <string name="settings_category_speaker">Пол диктора</string>
+    <string name="settings_category_color_scheme">Цветовая схема</string>
+
+    <!-- Place info page strings -->
+    <string name="place_get_direction_btn_text">Проложить маршрут</string>
+</resources>

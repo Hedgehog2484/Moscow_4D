@@ -1,0 +1,47 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Пользователь">
+
+        <EditTextPreference
+            app:key="username"
+            app:title="Имя пользователя"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Язык">
+
+        <ListPreference
+            app:defaultValue="1"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:key="language"
+            app:title="Язык интерфейса"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Звук">
+
+        <ListPreference
+            app:defaultValue="1"
+            app:entries="@array/voice_entries"
+            app:entryValues="@array/voice_values"
+            app:key="voice"
+            app:title="Голос диктора"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Тема">
+        <ListPreference
+            app:defaultValue="1"
+            app:entries="@array/color_mode_entries"
+            app:entryValues="@array/color_mode_values"
+            app:key="color_theme"
+            app:title="Выбор темы"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
