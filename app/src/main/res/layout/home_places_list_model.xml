@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:padding="5dp" android:orientation="horizontal" android:gravity="center_vertical" android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/llMain" xmlns:tools="http://schemas.android.com/tools" xmlns:card_view="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/card_view" tools:layout_editor_absoluteX="21dp" card_view:layout_constraintTop_toTopOf="parent" card_view:layout_constraintBottom_toBottomOf="parent" card_view:cardCornerRadius="6dp" android:layout_gravity="center">
+
+
+    -<RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/blue">
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/place_image"
+        android:src="@drawable/ic_home"
+        android:contentDescription="description"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="7dp"/>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/place_image"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="PlaceName" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="300dp" android:id="@+id/tvDesc" tools:text="PlaceDescription" android:textSize="16sp" android:textColor="@color/black" android:layout_toRightOf="@+id/place_image" android:layout_below="@+id/tvName"/>
+
+        <ImageButton
+            android:id="@+id/ivLead"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/tvName"
+            android:background="@drawable/roundcorner_background"
+            android:contentDescription="image"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_route" />
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
