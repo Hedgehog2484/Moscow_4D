@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import android.os.Handler
 import android.os.Looper
+import androidx.preference.PreferenceManager
 
 class BottomSheetFragment(mapController: MapController) : BottomSheetDialogFragment() {
     /**
@@ -24,7 +25,7 @@ class BottomSheetFragment(mapController: MapController) : BottomSheetDialogFragm
 
     private val mController = mapController
 
-    private val player: MediaPlayer = MediaPlayer.create(mController.context, R.raw.music)
+    private lateinit var player: MediaPlayer
 
     private lateinit var place_name: TextView
     private lateinit var place_image: ImageView
@@ -36,9 +37,6 @@ class BottomSheetFragment(mapController: MapController) : BottomSheetDialogFragm
     private lateinit var runnable: Runnable
     private var handler: Handler = Handler()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +48,7 @@ class BottomSheetFragment(mapController: MapController) : BottomSheetDialogFragm
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        player = getMediaPlayer()
 
         place_name = view.findViewById<TextView>(R.id.bottom_sheet_title)  // Get name TextView.
         place_image = view.findViewById<ImageView>(R.id.bottom_sheet_image)  // Get ImageView.
@@ -89,19 +88,13 @@ class BottomSheetFragment(mapController: MapController) : BottomSheetDialogFragm
                     player.seekTo(pos)
                 }
             }
+            override fun onStartTrackingTouch(p0: SeekBar?) { }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-
-            }
-
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-
-            }
+            override fun onStopTrackingTouch(p0: SeekBar?) { }
         })
 
         runnable = Runnable {
             seek_bar.progress = player.currentPosition
-
             handler.postDelayed(runnable, 1000)
         }
 
@@ -116,5 +109,17 @@ class BottomSheetFragment(mapController: MapController) : BottomSheetDialogFragm
     private fun buildRoute(){
         mController.buildRouteFromMyLocation(LatLng(arguments?.getParcelable<PlaceEntity>("place")?.place_lat!!.toDouble(),
             arguments?.getParcelable<PlaceEntity>("place")?.place_lng!!.toDouble()))
+    }
+
+    private fun checkVoiceSettings(): String {
+        val sp = PreferenceManager.getDefaultSharedPreferences(context)
+        val voiceSettingsValue = sp.getString("voice_settings", "1")!!
+        return if (voiceSettingsValue == "2") "female" else "male"
+    }
+
+    private fun getMediaPlayer(): MediaPlayer {
+        //TODO: выбор файла в зависимости от настроек звука и выбранного исторического объекта.
+        var currentVoiceSettings = checkVoiceSettings()
+        return MediaPlayer.create(mController.context, R.raw.music)
     }
 }

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Moscow4D" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#1539A7</item>
-        <item name="colorPrimaryVariant">#122078</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

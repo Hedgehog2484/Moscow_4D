@@ -12,6 +12,7 @@
     <color name="blue">#033f6b</color>
     <color name="blue2">#245a7a</color>
     <color name="blue3">#2a56ad</color>
+    <color name="text_blue">#87abc1</color>
     <color name="box_stroke">#25567b</color>
 
 </resources>

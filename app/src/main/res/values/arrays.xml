@@ -1,18 +1,20 @@
 <resources>
 
     <string-array name="color_mode_entries">
-        <item>Светлая тема</item>
-        <item>Темная тема</item>
+        <item>@string/settings_category_color_scheme_light</item>
+        <item>@string/settings_category_color_scheme_dark</item>
+        <item>@string/settings_category_color_scheme_default</item>
     </string-array>
 
     <string-array name="color_mode_values">
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="voice_entries">
-        <item>Мужской</item>
-        <item>Женский</item>
+        <item>@string/settings_category_speaker_gender_male</item>
+        <item>@string/settings_category_speaker_gender_female</item>
     </string-array>
 
     <string-array name="voice_values">

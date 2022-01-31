@@ -6,11 +6,10 @@ import androidx.lifecycle.ViewModel
 
 class SettingsViewModel : ViewModel() {
 
-    private var _username = MutableLiveData("Usernamme")
+    private var _username = MutableLiveData("Username")
     val username: LiveData<String> = _username
 
-    fun SaveUsername(newUsername: String){
+    fun saveUsername(newUsername: String){
         _username.value = newUsername
     }
-
 }

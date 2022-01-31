@@ -76,7 +76,6 @@
                 android:layout_height="wrap_content"
 
                 android:text="English" />
-
         </RadioGroup>
 
 
@@ -152,7 +151,7 @@
             android:id="@+id/radioGroup_colour"
 
             android:layout_width="170dp"
-            android:layout_height="96dp"
+            android:layout_height="144dp"
 
             android:layout_marginStart="44dp"
             android:layout_marginTop="447dp"
@@ -163,21 +162,26 @@
             <!-- Lite theme button -->
             <RadioButton
                 android:id="@+id/theme_button_lite"
-
+                app:key="lite_theme_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:text="Светлая" />
 
 
             <!-- Dark theme button -->
             <RadioButton
                 android:id="@+id/theme_button_dark"
-
+                app:key="dark_theme_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:text="Тёмная" />
+
+            <RadioButton
+                android:id="@+id/theme_button_default"
+                app:key="default_theme_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="По умолчанию" />
         </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,11 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.moscow4D.ColorThemeController
 import com.android.moscow4D.MainActivity
 import com.android.moscow4D.R
 import com.android.moscow4D.database.PlaceListAdapter
@@ -21,7 +24,7 @@ import com.android.moscow4D.databinding.FragmentSettingsBinding
 import com.android.moscow4D.viewmodels.SettingsViewModel
 
 
-class HomeFragment(mainActivity: MainActivity) : Fragment(), PlaceListAdapter.OnItemClickListener{
+class HomeFragment : Fragment(), PlaceListAdapter.OnItemClickListener{
 
     private var _binding: FragmentSettingsBinding? = null
 
@@ -30,8 +33,8 @@ class HomeFragment(mainActivity: MainActivity) : Fragment(), PlaceListAdapter.On
     private lateinit var placesViewModel: PlacesViewModel
     private val settingsViewModel: SettingsViewModel by activityViewModels()
 
-    val mAct = mainActivity
-    val addFragment = AddFragment()
+    //val mAct = MainActivity()
+    private val addFragment = AddFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,10 +66,19 @@ class HomeFragment(mainActivity: MainActivity) : Fragment(), PlaceListAdapter.On
             })
 
         view.findViewById<Button>(com.android.moscow4D.R.id.btnAdd).setOnClickListener {
-            mAct.setFragment(addFragment)
+            //mAct.setFragment(addFragment)
+            requireActivity().supportFragmentManager.inTransaction {
+                replace(R.id.fragment_container, addFragment)
+            }
         }
 
         return view
+    }
+
+    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
+        val fragmentTransaction = beginTransaction()
+        fragmentTransaction.func()
+        fragmentTransaction.commit()
     }
 
     override fun onItemClick(position: Int) {

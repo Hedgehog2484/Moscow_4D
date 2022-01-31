@@ -6,7 +6,7 @@
     -<RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:background="@color/blue">
+        android:background="@color/blue3">
 
     <ImageView
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@+id/tvName"
-            android:background="@drawable/roundcorner_background"
+            android:background="@color/blue3"
             android:contentDescription="image"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"

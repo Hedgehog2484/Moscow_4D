@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Moscow4D</string>
+
+    <!-- Home page strings -->
     <string name="home_default_username">Your name</string>
-    <string name="home_searchview_query_hint">Plane name</string>
-    <string name="settings_page_title_lang">Settings</string>
+    <string name="home_searchview_query_hint">Place name</string>
+
+    <!-- Settings page strings -->
+    <string name="settings_page_title">Settings</string>
+
+    <string name="settings_category_user">User</string>
+    <string name="settings_category_user_title">Username</string>
+
     <string name="settings_category_lang">Language</string>
+    <string name="settings_category_lang_title">Interface language</string>
+
     <string name="settings_category_speaker">Speaker</string>
+    <string name="settings_category_speaker_title">Speaker voice</string>
+    <string name="settings_category_speaker_gender_male">Male</string>
+    <string name="settings_category_speaker_gender_female">Female</string>
+
     <string name="settings_category_color_scheme">Color scheme</string>
+    <string name="settings_category_color_scheme_title">Choosing color theme</string>
+    <string name="settings_category_color_scheme_light">Light</string>
+    <string name="settings_category_color_scheme_dark">Dark</string>
+    <string name="settings_category_color_scheme_default">Default</string>
+
+    <!-- Place info page strings -->
     <string name="place_get_direction_btn_text">Get direction</string>
 </resources>

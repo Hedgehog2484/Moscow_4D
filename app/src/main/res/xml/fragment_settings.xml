@@ -1,46 +1,47 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="Пользователь">
+    <PreferenceCategory app:title="@string/settings_category_user">
 
         <EditTextPreference
             app:key="username"
-            app:title="Имя пользователя"
+            app:title="@string/settings_category_user_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Язык">
+    <PreferenceCategory app:title="@string/settings_category_lang">
 
         <ListPreference
             app:defaultValue="1"
             app:entries="@array/language_entries"
             app:entryValues="@array/language_values"
             app:key="language"
-            app:title="Язык интерфейса"
+            app:title="@string/settings_category_lang_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Звук">
+    <PreferenceCategory app:title="@string/settings_category_speaker">
 
         <ListPreference
             app:defaultValue="1"
             app:entries="@array/voice_entries"
             app:entryValues="@array/voice_values"
             app:key="voice"
-            app:title="Голос диктора"
+            app:title="@string/settings_category_speaker_title"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Тема">
+    <PreferenceCategory app:title="@string/settings_category_color_scheme">
         <ListPreference
+            android:id="@+id/color_theme"
             app:defaultValue="1"
             app:entries="@array/color_mode_entries"
             app:entryValues="@array/color_mode_values"
             app:key="color_theme"
-            app:title="Выбор темы"
+            app:title="@string/settings_category_color_scheme_title"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
